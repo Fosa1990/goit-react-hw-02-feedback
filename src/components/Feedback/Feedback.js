@@ -4,6 +4,7 @@ import Statistics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
 import Notification from '../Notification';
 import ResetButton from '../ResetButton';
+import Title from '../Title';
 
 export class Feedback extends Component {
   static deafaultProps = {
@@ -55,14 +56,17 @@ export class Feedback extends Component {
 
     return (
       <>
-        <Section title="Cafe Expresso" mainTitle={true} />
-        <Section title="Please leave feedback" flex={false} vertical={false}>
+        <Section flex={false} vertical={false}>
+          <Title title="Cafe Expresso" titleType={true} />
+          <Title title="Please leave feedback" titleType={false} />
           <FeedbackOptions
             options={stateArray}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
-        <Section title="Statistics" flex={true} vertical={true}>
+        <Section flex={true} vertical={true}>
+          <Title title="Statistics" titleType={false} />
+
           {total !== 0 ? (
             <>
               <Statistics
