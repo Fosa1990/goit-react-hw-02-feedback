@@ -39,14 +39,14 @@ const FeedbackButton = styled.button`
   }
 `;
 
-const FeedbackOptions = ({ options, onLeaveFeedback, onButtonTitle }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <FeedbackWrapper>
       {options.map((element, index) => (
         <FeedbackButton
           key={index}
           type="button"
-          title="Feedback button"
+          title={`Leave a ${element} response`}
           onClick={() => {
             onLeaveFeedback(element);
           }}
