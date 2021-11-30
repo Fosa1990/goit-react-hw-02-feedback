@@ -6,7 +6,7 @@ const SectionWrapper = styled.section`
   margin: 0 25px 5px 25px;
 `;
 const Title = styled.h2`
-  padding: 5px;
+  text-align: center;
   font-size: 32px;
   font-family: 'Roboto', sans-serif;
 `;
