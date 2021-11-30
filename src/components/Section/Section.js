@@ -32,6 +32,7 @@ const Section = ({ title, mainTitle, children }) => {
 
 Section.defaultProps = {
   mainTitle: false,
+  title: 'Section title',
 };
 
 Section.propTypes = {
