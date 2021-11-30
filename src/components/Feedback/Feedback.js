@@ -52,13 +52,13 @@ export class Feedback extends Component {
     return (
       <>
         <Section title="Cafe Expresso" mainTitle={true} />
-        <Section title="Please leave feedback" verticalFlex={true}>
+        <Section title="Please leave feedback" flex={false} vertical={false}>
           <FeedbackOptions
             options={stateArray}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
-        <Section title="Statistics" verticalFlex={true}>
+        <Section title="Statistics" flex={true} vertical={true}>
           {total !== 0 ? (
             <>
               <Statistics
