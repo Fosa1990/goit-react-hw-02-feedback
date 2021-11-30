@@ -3,6 +3,7 @@ import Section from '../Section';
 import Statistics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
 import Notification from '../Notification';
+import ResetButton from '../ResetButton';
 
 export class Feedback extends Component {
   static deafaultProps = {
@@ -20,6 +21,14 @@ export class Feedback extends Component {
       return {
         [option]: prevState[option] + 1,
       };
+    });
+  };
+
+  onResetButton = () => {
+    this.setState({
+      good: this.props.initialValue,
+      neutral: 0,
+      bad: 0,
     });
   };
 
@@ -51,13 +60,16 @@ export class Feedback extends Component {
         </Section>
         <Section title="Statistics">
           {total !== 0 ? (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={total}
-              percent={percent}
-            />
+            <>
+              <Statistics
+                good={good}
+                neutral={neutral}
+                bad={bad}
+                total={total}
+                percent={percent}
+              />
+              <ResetButton onResetButton={this.onResetButton} />
+            </>
           ) : (
             <Notification message="There is no feedback" />
           )}
