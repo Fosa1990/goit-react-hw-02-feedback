@@ -5,9 +5,9 @@ const SectionWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: ${props => (props.verticalFlex ? 'column' : 'row')};
   padding: 0 25px;
-  margin: 0 25px;
+  margin: 0;
 `;
 const MainTitle = styled.h1`
   text-align: center;
@@ -21,14 +21,22 @@ const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
 `;
 
-const Section = ({ title, mainTitle, children }) => {
+const IsItMainTitle = ({ mainTitle, title }) => {
   return (
-    <SectionWrapper>
+    <>
       {mainTitle === true ? (
         <MainTitle>{title}</MainTitle>
       ) : (
         <Title>{title}</Title>
       )}
+    </>
+  );
+};
+
+const Section = ({ title, mainTitle, children, verticalFlex }) => {
+  return (
+    <SectionWrapper verticalFlex={verticalFlex}>
+      <IsItMainTitle title={title} mainTitle={mainTitle} />
       {children}
     </SectionWrapper>
   );
@@ -37,12 +45,14 @@ const Section = ({ title, mainTitle, children }) => {
 Section.defaultProps = {
   mainTitle: false,
   title: 'Section title',
+  verticalFlex: false,
 };
 
 Section.propTypes = {
   mainTitle: PropTypes.bool,
   title: PropTypes.string,
   children: PropTypes.node,
+  verticalFlex: PropTypes.bool,
 };
 
 export default Section;
