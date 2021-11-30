@@ -11,6 +11,7 @@ const FeedbackButton = styled.button`
   padding: 10px 20px;
   font-family: var(--big);
   font-weight: 700;
+  text-transform: capitalize;
   color: var(--yellow);
   border: 1px solid gray;
   border-radius: 6px;
@@ -37,46 +38,29 @@ const FeedbackButton = styled.button`
     background-color: var(--red);
   }
 `;
-const FeedbackOptions = ({
-  onHandleClickBtnGood,
-  onHandleClickBtnNeutral,
-  onHandleClickBtnBad,
-}) => {
+
+const FeedbackOptions = ({ options, onLeaveFeedback, onButtonTitle }) => {
   return (
     <FeedbackWrapper>
-      <FeedbackButton
-        type="button"
-        onClick={() => {
-          onHandleClickBtnGood();
-        }}
-      >
-        Good
-      </FeedbackButton>
-      <FeedbackButton
-        type="button"
-        onClick={() => {
-          onHandleClickBtnNeutral();
-        }}
-      >
-        Neutral
-      </FeedbackButton>
-      <FeedbackButton
-        type="button"
-        onClick={() => {
-          onHandleClickBtnBad();
-        }}
-      >
-        Bad
-      </FeedbackButton>
+      {options.map((element, index) => (
+        <FeedbackButton
+          key={index}
+          type="button"
+          title="Feedback button"
+          onClick={() => {
+            onLeaveFeedback(element);
+          }}
+        >
+          {element}
+        </FeedbackButton>
+      ))}
     </FeedbackWrapper>
   );
 };
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
-  onHandleClickBtnGood: PropTypes.func.isRequired,
-  onHandleClickBtnNeutral: PropTypes.func.isRequired,
-  onHandleClickBtnBad: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
