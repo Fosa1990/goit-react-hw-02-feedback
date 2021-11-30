@@ -17,7 +17,6 @@ const FeedbackButton = styled.button`
   border-radius: 6px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
   transition: all 250ms ease-in;
-  cursor: pointer;
   :first-of-type {
     color: var(--green);
   }

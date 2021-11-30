@@ -57,15 +57,23 @@ export class Feedback extends Component {
     return (
       <>
         <Section flex={false} vertical={false}>
-          <Title title="Cafe Expresso" titleType={true} />
-          <Title title="Please leave feedback" titleType={false} />
+          <Title
+            title="Cafe Expresso"
+            titleType={true}
+            titleStyles="accented"
+          />
+          <Title
+            title="Please leave feedback"
+            titleType={false}
+            titleStyles="normal"
+          />
           <FeedbackOptions
             options={stateArray}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
         <Section flex={true} vertical={true}>
-          <Title title="Statistics" titleType={false} />
+          <Title title="Statistics" titleType={false} titleStyles="accented" />
 
           {total !== 0 ? (
             <>
@@ -75,6 +83,7 @@ export class Feedback extends Component {
                 bad={bad}
                 total={total}
                 percent={percent}
+                listItemStyles="green"
               />
               <ResetButton onResetButton={this.onResetButton} />
             </>

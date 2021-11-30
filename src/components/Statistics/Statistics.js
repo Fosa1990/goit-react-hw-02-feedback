@@ -1,5 +1,25 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { getStyles } from '../../layout/layouts';
+const styles = getStyles();
+
+const listItemTypes = {
+  green: {
+    color: `${styles.greenColor}`,
+  },
+  yellow: {
+    color: `${styles.yellowColor}`,
+  },
+  red: {
+    color: `${styles.redColor}`,
+  },
+  blue: {
+    color: `${styles.blueColor}`,
+  },
+  white: {
+    color: `${styles.whiteColor}`,
+  },
+};
 
 const List = styled.ul`
   list-style: none;
@@ -10,16 +30,17 @@ const ListItem = styled.li`
   font-size: 20px;
   font-weight: 600;
   padding: 2px;
+  color: ${({ listItemStyles }) => listItemTypes[listItemStyles].color};
 `;
 
 const Statistics = ({ good, neutral, bad, total, percent }) => {
   return (
     <List>
-      <ListItem>Good: {good}</ListItem>
-      <ListItem>Neutral: {neutral}</ListItem>
-      <ListItem>Bad: {bad}</ListItem>
-      <ListItem>Total: {total}</ListItem>
-      <ListItem>Positive feedback: {percent}%</ListItem>
+      <ListItem listItemStyles="green">Good: {good}</ListItem>
+      <ListItem listItemStyles="yellow">Neutral: {neutral}</ListItem>
+      <ListItem listItemStyles="red">Bad: {bad}</ListItem>
+      <ListItem listItemStyles="white">Total: {total}</ListItem>
+      <ListItem listItemStyles="blue">Positive feedback: {percent}%</ListItem>
     </List>
   );
 };

@@ -11,7 +11,6 @@ const ResButton = styled.button`
   border: 1px solid gray;
   border-radius: 6px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
-  cursor: pointer;
   transition: all 250ms ease-in;
   :hover {
     color: var(--white);
