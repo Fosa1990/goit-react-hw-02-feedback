@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FeedbackWrapper = styled.div`
-  padding: 5px 10px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
 `;
 const FeedbackButton = styled.button`
-  padding: 5px 9px 5px 9px;
-  font-family: 'Roboto', sans-serif;
+  padding: 10px 20px;
+  font-family: var(--big);
   font-weight: 700;
-  background-color: aliceblue;
+  color: var(--yellow);
   border: 1px solid gray;
   border-radius: 6px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
@@ -16,9 +19,22 @@ const FeedbackButton = styled.button`
   :not(:last-of-type) {
     margin-right: 10px;
   }
+  :first-of-type {
+    color: var(--green);
+  }
+  :last-of-type {
+    color: var(--red);
+  }
   :hover {
     cursor: pointer;
-    background-color: rgba(22, 144, 22, 0.8);
+    color: var(--white);
+    background-color: var(--yellow);
+  }
+  :first-of-type:hover {
+    background-color: var(--green);
+  }
+  :last-of-type:hover {
+    background-color: var(--red);
   }
 `;
 const FeedbackOptions = ({
