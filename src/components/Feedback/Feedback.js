@@ -11,10 +11,14 @@ export class Feedback extends Component {
   };
 
   state = {
-    good: this.props.initialValue,
+    good: 0,
     neutral: 0,
     bad: 0,
   };
+
+  componentDidMount() {
+    this.setState({ good: this.props.initialValue });
+  }
 
   onLeaveFeedback = option => {
     this.setState(prevState => {
@@ -26,7 +30,7 @@ export class Feedback extends Component {
 
   onResetButton = () => {
     this.setState({
-      good: this.props.initialValue,
+      good: 0,
       neutral: 0,
       bad: 0,
     });
