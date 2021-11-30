@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const SectionWrapper = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: ${props => (props.verticalFlex ? 'column' : 'row')};
+  ${props =>
+    props.flex
+      ? 'display: flex; align-items: center; justify-content: center; flex-direction: row;'
+      : 'display: block;'};
+  ${props => (props.vertical ? 'flex-direction: column;' : '')};
+
   padding: 0 25px;
   margin: 0;
 `;
@@ -33,9 +35,9 @@ const IsItMainTitle = ({ mainTitle, title }) => {
   );
 };
 
-const Section = ({ title, mainTitle, children, verticalFlex }) => {
+const Section = ({ title, mainTitle, children, flex, vertical }) => {
   return (
-    <SectionWrapper verticalFlex={verticalFlex}>
+    <SectionWrapper flex={flex} vertical={vertical}>
       <IsItMainTitle title={title} mainTitle={mainTitle} />
       {children}
     </SectionWrapper>
@@ -45,7 +47,8 @@ const Section = ({ title, mainTitle, children, verticalFlex }) => {
 Section.defaultProps = {
   mainTitle: false,
   title: 'Section title',
-  verticalFlex: false,
+  flex: false,
+  vertical: false,
 };
 
 Section.propTypes = {
