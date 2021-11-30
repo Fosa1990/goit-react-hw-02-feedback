@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Section from '../Section';
 import Statistics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
+import Notification from '../Notification';
 
 export class Feedback extends Component {
   static deafaultProps = {
@@ -70,13 +71,17 @@ export class Feedback extends Component {
           />
         </Section>
         <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            percent={percent}
-          />
+          {good > 0 || neutral > 0 || bad > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              percent={percent}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </Section>
       </>
     );
