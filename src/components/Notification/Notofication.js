@@ -6,6 +6,7 @@ const NotoficationWrapper = styled.div`
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 600;
+  text-align: center;
 `;
 
 const Notofication = ({ message }) => {
@@ -13,7 +14,7 @@ const Notofication = ({ message }) => {
 };
 
 Notofication.defaultProps = {
-  message: 'There is no feedback',
+  message: "It's empty here",
 };
 
 Notofication.propTypes = {
