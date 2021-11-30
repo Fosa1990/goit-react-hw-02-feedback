@@ -24,6 +24,14 @@ const Statistics = ({ good, neutral, bad, total, percent }) => {
   );
 };
 
+Statistics.defaultProps = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+  total: 0,
+  percent: 0,
+};
+
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
