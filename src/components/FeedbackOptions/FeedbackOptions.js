@@ -17,6 +17,7 @@ const FeedbackButton = styled.button`
   border-radius: 6px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
   transition: all 250ms ease-in;
+  cursor: pointer;
   :not(:last-of-type) {
     margin-right: 10px;
   }
@@ -27,7 +28,6 @@ const FeedbackButton = styled.button`
     color: var(--red);
   }
   :hover {
-    cursor: pointer;
     color: var(--white);
     background-color: var(--yellow);
   }
