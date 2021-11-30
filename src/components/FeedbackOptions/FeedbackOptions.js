@@ -18,9 +18,6 @@ const FeedbackButton = styled.button`
   box-shadow: 0.5px 0.5px 0.5px 0.5px gray;
   transition: all 250ms ease-in;
   cursor: pointer;
-  :not(:last-of-type) {
-    margin-right: 10px;
-  }
   :first-of-type {
     color: var(--green);
   }
