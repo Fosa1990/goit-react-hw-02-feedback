@@ -15,34 +15,12 @@ export class Feedback extends Component {
     bad: 0,
   };
 
-  handleClickBtnGood = () => {
+  onLeaveFeedback = option => {
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
+        [option]: prevState[option] + 1,
       };
     });
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
-  };
-
-  handleClickBtnNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
-  };
-
-  handleClickBtnBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
   countTotalFeedback = () => {
@@ -60,18 +38,19 @@ export class Feedback extends Component {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const percent = this.countPositiveFeedbackPercentage();
+    const stateArray = Object.keys(this.state);
 
     return (
       <>
+        <Section title="Cafe Expresso" mainTitle={true} />
         <Section title="Please leave feedback">
           <FeedbackOptions
-            onHandleClickBtnGood={this.handleClickBtnGood}
-            onHandleClickBtnNeutral={this.handleClickBtnNeutral}
-            onHandleClickBtnBad={this.handleClickBtnBad}
+            options={stateArray}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
         <Section title="Statistics">
-          {good > 0 || neutral > 0 || bad > 0 ? (
+          {total !== 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
