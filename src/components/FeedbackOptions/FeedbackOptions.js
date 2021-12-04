@@ -38,9 +38,9 @@ const FeedbackButton = styled.button`
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <FeedbackWrapper>
-      {options.map((element, index) => (
+      {options.map(element => (
         <FeedbackButton
-          key={index}
+          key={element}
           type="button"
           title={`Leave a ${element} response`}
           onClick={() => {

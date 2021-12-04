@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Section from '../Section';
 import Statistics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
@@ -76,7 +76,7 @@ export class Feedback extends Component {
           <Title title="Statistics" titleType={false} titleStyles="accented" />
 
           {total !== 0 ? (
-            <>
+            <Fragment>
               <Statistics
                 good={good}
                 neutral={neutral}
@@ -86,7 +86,7 @@ export class Feedback extends Component {
                 listItemStyles="green"
               />
               <ResetButton onResetButton={this.onResetButton} />
-            </>
+            </Fragment>
           ) : (
             <Notification message="There is no feedback" />
           )}
