@@ -1,12 +1,37 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return (
+    <FeedbackWrapper>
+      {options.map(element => (
+        <FeedbackButton
+          key={element}
+          type="button"
+          title={`Leave a ${element} response`}
+          onClick={() => {
+            onLeaveFeedback(element);
+          }}
+        >
+          {element}
+        </FeedbackButton>
+      ))}
+    </FeedbackWrapper>
+  );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
 const FeedbackWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 10px;
 `;
+
 const FeedbackButton = styled.button`
   padding: 10px 20px;
   font-family: var(--big);
@@ -34,29 +59,5 @@ const FeedbackButton = styled.button`
     background-color: var(--red);
   }
 `;
-
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return (
-    <FeedbackWrapper>
-      {options.map(element => (
-        <FeedbackButton
-          key={element}
-          type="button"
-          title={`Leave a ${element} response`}
-          onClick={() => {
-            onLeaveFeedback(element);
-          }}
-        >
-          {element}
-        </FeedbackButton>
-      ))}
-    </FeedbackWrapper>
-  );
-};
-
-FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.func.isRequired,
-};
 
 export default FeedbackOptions;

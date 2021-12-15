@@ -1,6 +1,18 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const ResetButton = ({ onResetButton }) => {
+  return (
+    <ResButton title="Reset values" onClick={onResetButton}>
+      Reset
+    </ResButton>
+  );
+};
+
+ResetButton.propTypes = {
+  onResetButton: PropTypes.func.isRequired,
+};
+
 const ResButton = styled.button`
   padding: 10px 20px;
   font-family: var(--big);
@@ -17,17 +29,5 @@ const ResButton = styled.button`
     background-color: var(--dark);
   }
 `;
-
-const ResetButton = ({ onResetButton }) => {
-  return (
-    <ResButton title="Reset values" onClick={onResetButton}>
-      Reset
-    </ResButton>
-  );
-};
-
-ResetButton.propTypes = {
-  onResetButton: PropTypes.func.isRequired,
-};
 
 export default ResetButton;

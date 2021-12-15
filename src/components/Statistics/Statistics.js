@@ -3,36 +3,6 @@ import styled from 'styled-components';
 import { getStyles } from '../../layout/layouts';
 const styles = getStyles();
 
-const listItemTypes = {
-  green: {
-    color: `${styles.greenColor}`,
-  },
-  yellow: {
-    color: `${styles.yellowColor}`,
-  },
-  red: {
-    color: `${styles.redColor}`,
-  },
-  blue: {
-    color: `${styles.blueColor}`,
-  },
-  white: {
-    color: `${styles.whiteColor}`,
-  },
-};
-
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-const ListItem = styled.li`
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 2px;
-  color: ${({ listItemStyles }) => listItemTypes[listItemStyles].color};
-`;
-
 const Statistics = ({ good, neutral, bad, total, percent }) => {
   return (
     <List>
@@ -60,5 +30,36 @@ Statistics.propTypes = {
   total: PropTypes.number,
   percent: PropTypes.number,
 };
+
+const listItemTypes = {
+  green: {
+    color: `${styles.greenColor}`,
+  },
+  yellow: {
+    color: `${styles.yellowColor}`,
+  },
+  red: {
+    color: `${styles.redColor}`,
+  },
+  blue: {
+    color: `${styles.blueColor}`,
+  },
+  white: {
+    color: `${styles.whiteColor}`,
+  },
+};
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const ListItem = styled.li`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px;
+  color: ${({ listItemStyles }) => listItemTypes[listItemStyles].color};
+`;
 
 export default Statistics;
